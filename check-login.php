@@ -1,6 +1,6 @@
 <?php
-include("head.php");
-include("conexion.php");
+include "head.php";
+include "conexion.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // ?Verificar si se envió el formulario
 
