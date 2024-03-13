@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'Bw Surco DEMO Black';
+    src: url('../../../assets/webfonts/BwSurco.otf') format('opentype');
+}
+
+/* BACKGROUND BODY */
+body {
+    background: #121517;
+}
+
+.netrabbit {
+    background-color: #2596BE;
+    border: #2596BE;
+    color: #FFFFFF;
+}
+
+
+/* CONTENEDOR */
+.container {
+    background-color: #212529;
+    color: #DEE2E6;
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    border-radius: 0.375rem;
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+
+/* NAVBAR SUPERIOR */
+.navbart,
+.navbart:hover {
+    color: #FFFF;
+    font-size: x-large;
+    font-family: 'Bw Surco DEMO Black', sans-serif;
+    font-weight: bold;
+}
+
+/* NAVBAR COPYRIGHT */
+.navbarc,
+.navbarc:hover {
+    color: #aeb2b6;
+    font-size: smaller;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* DISEÑADO POR */
+.disenado {
+    color: #00d6e7;
+}
+
+/* TÍTULO DE SECTOR Y LÍNEA DIVISORA */
+/* .titulo {
+    color: #FFFF;
+    font-family: 'Bw Surco DEMO Black', sans-serif;
+    font-weight: bold;
+} */
+
+.titulosector {
+    color: #2596BE;
+    font-weight: bold;
+}
+
+.hr {
+    color: #2596BE;
+}
+
+.subtitulo {
+    color: #FFFFFF;
+}
+
+/* TEXTO NAVBAR */
+.navbar-brand,
+.navbar-brand:hover {
+    color: #FFFF;
+    font-weight: bold;
+}
+
+/* CENTRADO DE TEXTO */
+.centrado {
+    text-align: center;
+}
+
+/* APLICABLE A TABLA */
+.table {
+    text-align: center;
+}
+
+/* CORRECCIONES A BOTONES */
+.btn-warning,
+.btn-warning:hover,
+.btn-info,
+.btn-info:hover {
+    color: #FFFFFF;
+}
+
+/* TITULO DEL MODAL */
+/* .modal-title {
+    color: #FFFF;
+} */
+
+/* ESTILO DE BOTÓN PRIMARIO */
+/* .btn-primary {
+    background-color: #2596BE;
+    border-color: #2596BE;
+}
+
+.btn-primary:hover {
+    background-color: #1b6d8b;
+    border-color: #1b6d8b;
+} */
+
+/* -------------------------- */

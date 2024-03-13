@@ -1,0 +1,27 @@
+body {
+    font-family: Montserrat, sans-serif;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 300;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    color: #0cb9fb !important;
+    font-weight: 500;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+    color: #0cb9fb !important;
+}
+
+/* .navbar-nav .nav-item:hover {
+    background-color: rgba(21, 98, 36, 0.4);
+    color: #0cb9fb !important;
+} */

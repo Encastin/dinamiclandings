@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'Bw Surco DEMO Black';
+    src: url('../../../assets/webfonts/BwSurco.otf') format('opentype');
+}
+
+.netrabbit {
+    background-color: #2596BE;
+    border: #2596BE;
+    color: #FFFFFF;
+}
+
+body {
+    color: #f8f9fa;
+}
+
+/* CONTENEDOR */
+/* .container {
+    background-color: #212529;
+    color: #DEE2E6;
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    border-radius: 0.375rem;
+    margin-top: 80px;
+    margin-bottom: 60px;
+} */
+
+/* DISEÑADO POR */
+.disenado {
+    color: #00d6e7;
+}
+
+.titulosector {
+    color: #2596BE;
+    font-weight: bold;
+}
+
+.hr {
+    color: #2596BE;
+}
+
+.subtitulo {
+    color: #FFFFFF;
+}
+
+.vacio {
+    padding: 30px;
+}
+
+/* CORRECCIONES A BOTONES */
+.btn-warning,
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning:focus,
+.btn-info,
+.btn-info:hover,
+.btn-info:active,
+.btn-info:focus {
+    color: #FFFFFF;
+}
+
+.header {
+    background-color: transparent;
+    position: absolute;
+    height: 70px;
+    top: 15px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    -webkit-transition: all .5s ease 0s;
+    -moz-transition: all .5s ease 0s;
+    -o-transition: all .5s ease 0s;
+    transition: all .5s ease 0s;
+
+}
+
+.dropdown-menu {
+    background-color: #1f2122;
+    padding: unset;
+}
+
+.dropdown-item {
+    color: #FFFF;
+    padding: 12px;
+    border-radius: 0.375rem;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.dropdown-item:hover {
+    background-color: #27292a;
+    color: #FFFF;
+}
+
+.accordion-item {
+    /* background-color: #27292a; */
+    border: 1px solid #27292a;
+}
+
+.accordion-button {
+    background-color: #27292a;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #FFFF;
+    background-color: #27292a;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.btn-outline-info:hover,
+.btn-outline-info:active,
+.btn-outline-info:focus-visible {
+    color: #FFFFFF !important;
+}

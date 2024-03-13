@@ -1,0 +1,44 @@
+# Excluir un archivo específico
+conexion.php
+
+# Excluir una carpeta específica y todo su contenido
+pruebas/
+recursos/
+assets/images/
+
+# Excluir todos los archivos .txt en el directorio actual y sus subdirectorios
+*.sql
+
+# Excluir todos los archivos y carpetas dentro de un directorio específico
+# pruebas/*
+# recursos/*
+# assets/images/*
+
+# Excluir todos los archivos .log en todo el proyecto
+*.log
+
+# Excluir archivos con ciertas extensiones en cualquier lugar del proyecto
+*.tmp
+*.cache
+
+# Excluir archivos generados automáticamente
+/generated/
+
+# Excluir archivos de configuración locales
+.env
+
+# Excluir archivos de dependencias del proyecto
+/node_modules/
+/vendor/
+
+# Excluir archivos de compilación o ejecución
+/build/
+/dist/
+/out/
+
+# Excluir archivos de respaldo generados por editores de texto
+*~
+
+# Excluir archivos de configuración de IDE específicos
+.idea/
+.vscode/
