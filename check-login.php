@@ -2,44 +2,68 @@
 include "head.php";
 include "conexion.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") { // ?Verificar si se envió el formulario
+class AuthenticationHandler
+{
 
-	$email = trim($_POST['email']);
+	public mysqli $conn;
 
-	// ? Consulta SQL para buscar el usuario en la base de datos
-	$query = mysqli_query($DB, "SELECT password, idUsuario, tipoCuenta FROM usuario WHERE email ='$email' AND activo = 1");
+	function authenticate($email, $password)
+	{
+		$authenticated = false;
 
-	if (mysqli_num_rows($query) != 0) { // * El usuario fue encontrado
+		// Consulta preparada para evitar inyección SQL
+		$query = "SELECT password, idUsuario, tipoCuenta FROM usuario WHERE email = ? AND activo = 1";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bind_param("s", $email);
+		$stmt->execute();
+		$stmt->store_result();
 
-		$dato = mysqli_fetch_assoc($query);
-		$hash = $dato['password'];
-		$idUsuario = $dato['idUsuario'];
-		$tipoCuenta = $dato['tipoCuenta'];
+		if ($stmt->num_rows == 1) {
+			$stmt->bind_result($hash, $idUsuario, $tipoCuenta);
+			$stmt->fetch();
 
-		if (password_verify($_POST['password'], $hash)) { // * Desencriptado de contraseña
+			// Verificar si la contraseña es correcta
+			if (password_verify($password, $hash)) {
+				// Establecer variables de sesión
+				$_SESSION['loggedin'] = true;
+				$_SESSION['usuario'] = $idUsuario;
 
-			$_SESSION['loggedin'] = true;
-			$_SESSION['usuario'] = $idUsuario;
+				if ($tipoCuenta == "E") {
+					// Obtener el ID de la empresa asociada al usuario
+					$query = "SELECT idEmpresa FROM relempresa WHERE idUsuario = ? AND activo = 1";
+					$stmt = $this->conn->prepare($query);
+					$stmt->bind_param("i", $idUsuario);
+					$stmt->execute();
+					$stmt->store_result();
 
-			if ($tipoCuenta == "E") {
-				$query = mysqli_query($DB, "SELECT idEmpresa FROM relempresa WHERE idUsuario ='$idUsuario' AND activo = 1");
-				$dato = mysqli_fetch_assoc($query);
-				$idEmpresa = $dato['idEmpresa'];
-				$_SESSION['idEmpresa'] = $idEmpresa;
+					if ($stmt->num_rows == 1) {
+						$stmt->bind_result($idEmpresa);
+						$stmt->fetch();
+						$_SESSION['idEmpresa'] = $idEmpresa;
+					}
+				}
+
+				$_SESSION['start'] = time();
+				$_SESSION['expire'] = $_SESSION['start'] + (1 * 60); // 1 minute
+				$authenticated = true;
 			}
-
-			$_SESSION['start'] = time();
-			$_SESSION['expire'] = $_SESSION['start'] + (1 * 60);
-
-			header("Location: index.php");
-		} else {
-			// ! Contraseña incorrecta
-			$error = "Correo electrónico o contraseña incorrecto, favor de verificar.";
 		}
-	} else {
-		// ! Usuario no encontrado
-		$error = "Usuario no encontrado, favor de verificar.";
+
+		return $authenticated;
 	}
+}
+
+// Uso:
+$handler = new AuthenticationHandler();
+$handler->conn = $DB; // $DB es tu conexión a la base de datos
+
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+if ($handler->authenticate($email, $password)) {
+	header("Location: index.php");
+} else {
+	$error = "Correo electrónico o contraseña incorrecto, favor de verificar.";
 }
 
 // ! <!-- Mensaje de error (se muestra si las credenciales son incorrectas) -->
