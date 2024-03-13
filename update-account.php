@@ -3,8 +3,8 @@
 
 <head>
 	<?php
-	include("head.php");
-	include("conexion.php");
+	include "head.php";
+	include "conexion.php";
 	?>
 
 	<title>Registro | DinamicLandings</title>
@@ -15,7 +15,7 @@
 	<!-- Header  -->
 	<?php
 	$nav = "LOGIN";
-	include("navbar.php");
+	include "navbar.php";
 	// <!-- Header End -->
 
 	if ($acceso != 0) {  // * El usuario ha iniciado sesión, permite el acceso a la página protegida

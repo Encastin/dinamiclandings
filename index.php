@@ -3,8 +3,8 @@
 
 <head>
   <?php
-  include("head.php");
-  include("conexion.php");
+  include "head.php";
+  include "conexion.php";
   ?>
   <title>DinamicLandings | Crea Landing Pages Al Instante</title>
 </head>
@@ -16,7 +16,7 @@
 
     // <!-- Header  -->
     $nav = 1;
-    include("navbar.php");
+    include "navbar.php";
     // <!-- Header End -->
   ?>
 
@@ -86,7 +86,7 @@
     header("Location: login.php");
   }
 
-  include("footer.php"); ?>
+  include "footer.php"; ?>
 </body>
 
 </html>

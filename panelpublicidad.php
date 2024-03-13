@@ -3,8 +3,8 @@
 
 <head>
   <?php
-  include("head.php");
-  include("conexion.php");
+  include "head.php";
+  include "conexion.php";
   ?>
 
   <title>Publicidad | DinamicLandings</title>
@@ -16,7 +16,7 @@
   if ($acceso != 0) {  // * El usuario ha iniciado sesión, permite el acceso a la página protegida
     // <!-- Header  -->
     $nav = 3;
-    include("navbar.php");
+    include "navbar.php";
   ?>
     <!-- Header End -->
 
@@ -474,7 +474,7 @@
     header("Location: login.php");
   }
 
-  include("footer.php"); ?>
+  include "footer.php"; ?>
 </body>
 
 </html>

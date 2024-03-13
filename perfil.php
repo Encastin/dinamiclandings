@@ -3,8 +3,8 @@
 
 <head>
   <?php
-  include("head.php");
-  include("conexion.php");
+  include "head.php";
+  include "conexion.php";
   ?>
 
   <title>Mi Perfil | DinamicLandings</title>
@@ -25,7 +25,7 @@
 
     // <!-- Header  -->
     $nav = 4;
-    include("navbar.php");
+    include "navbar.php";
     // <!-- Header End -->
 
     $query = $DB->query("SELECT tipoCuenta, nombre, pApellido, sApellido, genero, fNacimiento, telefono, avatar, descripcion, fecha FROM usuario WHERE idUsuario = '$SesionID'");
@@ -573,7 +573,7 @@
     header("Location: login.php");
   }
 
-  include("footer.php"); ?>
+  include "footer.php"; ?>
 </body>
 
 </html>

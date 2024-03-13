@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-  <?php include("head.php"); ?>
+  <?php include "head.php"; ?>
 
   <title>Inicio de Sesión | DinamicLandings</title>
 </head>
@@ -12,7 +12,7 @@
   <!-- Header  -->
   <?php
   $nav = "LOGIN";
-  include("navbar.php");
+  include "navbar.php";
   ?>
   <!-- Header End -->
 
@@ -110,7 +110,7 @@
     })()
   </script>
 
-  <?php include("footer.php"); ?>
+  <?php include "footer.php"; ?>
 </body>
 
 </html>
