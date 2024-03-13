@@ -7,7 +7,7 @@ class AuthenticationHandler
 
 	public mysqli $conn;
 
-	function authenticate($email, $password)
+	public function authenticate($email, $password)
 	{
 		$authenticated = false;
 
