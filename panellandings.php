@@ -77,6 +77,8 @@
                                                 $query2 = 0;
                                                 break;
                                         }
+                                        $NoReg = "NO REGISTRADO";
+                                        $NoFoto = "assets/img/null.png";
                                         while ($dato = mysqli_fetch_array($query2)) {
                                             $idLanding = $dato['idLanding'];
 
@@ -89,23 +91,23 @@
                                                     $logo = $dato['logo'];
 
                                                     if (empty($logo)) {
-                                                        $logo = "assets/img/null.png";
+                                                        $logo = $NoFoto;
                                                     } else {
                                                         if (file_exists("landingpages/$idPlantilla/img/$id/" . $logo)) {
                                                             $logo = "landingpages/$idPlantilla/img/$id/" . $logo;
                                                         } else {
-                                                            $logo = "assets/img/null.png";
+                                                            $logo = $NoFoto;
                                                         }
                                                     }
 
                                                     if (empty($nombre)) {
-                                                        $nombre = "NO REGISTRADO";
+                                                        $nombre = $NoReg;
                                                     }
                                                     if (empty($copy)) {
-                                                        $copy = "NO REGISTRADO";
+                                                        $copy = $NoReg;
                                                     }
 
-                                                    echo ("
+                                                    echo "
                                                     <div class='item text-center'>
                                                     <ul>
                                                     <li><img src='$logo' alt='$nombre' class='templatemo-item'></li>
@@ -116,7 +118,7 @@
                                                     <li style='width: unset;'><button class='btn btn-danger rounded-4' value='$id' onclick='confirmarInhabilitar(this.value)'><i class='fa-solid fa-ban me-2'></i>Inhabilitar</button></li>
                                                     </ul>
                                                     </div>
-                                                    ");
+                                                    ";
                                                     unset($logo);
                                                 }
                                             }
@@ -241,30 +243,30 @@
                                                                                         $logom = $dato['logo'];
 
                                                                                         if (empty($logom)) {
-                                                                                            $logom = "assets/img/null.png";
+                                                                                            $logom = $NoFoto;
                                                                                         } else {
                                                                                             if (file_exists("landingpages/$idPlantilla/img/$idm/" . $logom)) {
                                                                                                 $logom = "landingpages/$idPlantilla/img/$idm/" . $logom;
                                                                                             } else {
-                                                                                                $logom = "assets/img/null.png";
+                                                                                                $logom = $NoFoto;
                                                                                             }
                                                                                         }
 
                                                                                         if (empty($nombrem)) {
-                                                                                            $nombrem = "NO REGISTRADO";
+                                                                                            $nombrem = $NoReg;
                                                                                         }
                                                                                         if (empty($copym)) {
-                                                                                            $copym = "NO REGISTRADO";
+                                                                                            $copym = $NoReg;
                                                                                         }
 
-                                                                                        echo ("
+                                                                                        echo "
                                                                                         <tr>
                                                                                         <td><img src='$logom' alt='$nombrem' style='max-height: 40px; max-width: 40px; height: auto; width: auto;'></td>
                                                                                             <td>$nombrem</td>
                                                                                             <td>$copym</td>
                                                                                             <td><button class='btn btn-success rounded-4' value='$idm' onclick='confirmarHabilitar(this.value)'><i class='fa-solid fa-arrow-rotate-left me-2'></i>Reactivar</button></td>
                                                                                         </tr>
-                                                                                    ");
+                                                                                        ";
                                                                                         $logom = '';
                                                                                     }
                                                                                 }

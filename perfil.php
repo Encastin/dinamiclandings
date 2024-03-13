@@ -27,6 +27,7 @@
     $nav = 4;
     include "navbar.php";
     // <!-- Header End -->
+    $formato = "d/m/Y";
 
     $query = $DB->query("SELECT tipoCuenta, nombre, pApellido, sApellido, genero, fNacimiento, telefono, avatar, descripcion, fecha FROM usuario WHERE idUsuario = '$SesionID'");
     $dato = $query->fetch_assoc();
@@ -40,7 +41,7 @@
     $telefonoU = $dato['telefono'];
     $avatarU = $dato['avatar'];
     $descripcionU = $dato['descripcion'];
-    $fecha = date("d/m/Y", strtotime($dato['fecha']));
+    $fecha = date($formato, strtotime($dato['fecha']));
 
     if ($tipoCuenta == "E") {
       $query = $DB->query("SELECT nombre, telefono, estado, municipio, colonia, calle, numExt, numInt, referencias, avatar, descripcion, fecha FROM empresa WHERE idEmpresa = '$EmpresaID'");
@@ -56,7 +57,7 @@
       $referencias = $dato['referencias'];
       $avatarE = $dato['avatar'];
       $descripcionE = $dato['descripcion'];
-      $fecha = date("d/m/Y", strtotime($dato['fecha']));
+      $fecha = date($formato, strtotime($dato['fecha']));
     }
 
     switch ($tipoCuenta) {
@@ -167,7 +168,7 @@
     $rol = $dato['rol'];
 
     $publicidad = 0; // ? Conteo de Publicidad creada (! Todavía no existe el módulo)
-    $expLic = date("d/m/Y", strtotime($hoy)); // ? Fecha de expiración de licencia (! Todavía no existe el módulo)
+    $expLic = date($formato, strtotime($hoy)); // ? Fecha de expiración de licencia (! Todavía no existe el módulo)
 
   ?>
 
