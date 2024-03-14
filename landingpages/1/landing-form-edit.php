@@ -1,4 +1,5 @@
 <?php
+error_reporting(0); // Para que no sean visibles los errores en pantalla
 include("../../conexion.php");
 
 $id = $_REQUEST['id'];
